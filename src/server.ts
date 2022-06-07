@@ -18,4 +18,4 @@ if (typeof (DB_CONNECTION) !== "undefined")
     )
     .catch((error) => console.error(error));
 
-app.listen(process.env.SERVER_PORT, () => console.log(`Node.js Server running on port ${process.env.SERVER_PORT}`));
+app.listen(process.env.PORT, () => console.log(`Node.js Server running on port ${process.env.SERVER_PORT}`));
