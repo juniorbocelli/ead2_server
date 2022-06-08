@@ -23,6 +23,7 @@ class DAOPost implements DAO<Post, string> {
       title: post.title,
       description: post.description,
       creator: post.creator,
+
       createdAt: post.createdAt,
       updatedAt: post.updatedAt,
     });
@@ -34,15 +35,16 @@ class DAOPost implements DAO<Post, string> {
     if (!this.isValidObjectId(post))
       throw 'O id do post é inválido';
 
-    const updatedPostData = {
-      ctitle: post.title,
+    const updatedPost = {
+      title: post.title,
       description: post.description,
       creator: post.creator,
+
       createdAt: post.createdAt,
       updatedAt: post.updatedAt,
     };
 
-    const updatePost = await PostSchema.findByIdAndUpdate(post.id, updatedPostData, { new: true });
+    const updatePost = await PostSchema.findByIdAndUpdate(post.id, updatedPost, { new: true });
 
     if (updatePost !== null)
       return Post.getFromObject(updatePost);
@@ -51,7 +53,7 @@ class DAOPost implements DAO<Post, string> {
   };
 
   async saveOrUpdate(post: Post) {
-    if (post.id === null) {
+    if (typeof (post.id) === "undefined") {
       return this.save(post);
     };
 
@@ -72,7 +74,7 @@ class DAOPost implements DAO<Post, string> {
     return post.id!?.toString();
   };
 
-  async delete(id: string) {
+  async delete(id: string): Promise<void> {
     if (!this.isValidObjectId(id))
       throw `O id do post é inválido`;
 
@@ -85,16 +87,7 @@ class DAOPost implements DAO<Post, string> {
     if (post === null)
       return null;
 
-    const foundedPost: Post = {
-      id: post.id,
-      title: post.title,
-      description: post.description,
-      creator: post.creator,
-      createdAt: post.createdAt,
-      updatedAt: post.updatedAt,
-    };
-
-    return Post.getFromObject(foundedPost);
+    return Post.getFromObject(post);
   };
 
   async selectAll(): Promise<Array<Post>> {
@@ -102,16 +95,9 @@ class DAOPost implements DAO<Post, string> {
     let postsToReturn: Array<Post> = [];
 
     posts.forEach((post) => {
-      let foundedPost: Post = {
-        id: post.id,
-        title: post.title,
-        description: post.description,
-        creator: post.creator,
-        createdAt: post.createdAt,
-        updatedAt: post.updatedAt,
-      };
-      postsToReturn.push(Post.getFromObject(foundedPost));
+      postsToReturn.push(Post.getFromObject(post));
     });
+
     return postsToReturn;
   };
 
@@ -120,16 +106,9 @@ class DAOPost implements DAO<Post, string> {
     let postsToReturn: Array<Post> = [];
 
     posts.forEach((post) => {
-      let foundedPost: Post = {
-        id: post.id,
-        title: post.title,
-        description: post.description,
-        creator: post.creator,
-        createdAt: post.createdAt,
-        updatedAt: post.updatedAt,
-      };
-      postsToReturn.push(Post.getFromObject(foundedPost));
+      postsToReturn.push(Post.getFromObject(post));
     });
+
     return postsToReturn;
   };
 };
