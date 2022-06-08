@@ -1,5 +1,5 @@
 import mongoose from 'mongoose';
-
+// CU
 class SanitizerString {
   public static onlyNumbers(value: string): string {
     return value.replace(/\D/g, "");
