@@ -21,5 +21,6 @@
     "dev": "ts-node-dev --debug --inspect --transpile-only --ignore-watch node_modules src/server.ts",
     "start": "node src/server.ts",
     "build": "tsc"
-  }
+  },
+  "engines": { "node": "12.x" }
 }
