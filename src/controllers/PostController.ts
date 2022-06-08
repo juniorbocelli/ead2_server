@@ -44,7 +44,7 @@ class PostControler {
 
       res.status(200).json(post);
     } catch (error: any) {
-      res.status(500).json({ error: error.message });
+      res.status(200).json({ error: error.message });
     };
   };
 
