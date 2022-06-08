@@ -33,7 +33,7 @@ class DAOPost implements DAO<Post, string> {
 
   async update(post: Post) {
     if (!this.isValidObjectId(post))
-      throw 'O id do post é inválido';
+      throw new Error('O id do post é inválido');
 
     const updatedPost = {
       title: post.title,
@@ -58,7 +58,7 @@ class DAOPost implements DAO<Post, string> {
     };
 
     if (!this.isValidObjectId(post))
-      throw `O id do post é inválido`;
+      throw new Error(`O id do post é inválido`);
 
     const singlePost = await PostSchema.findById(post.id);
 
@@ -76,7 +76,7 @@ class DAOPost implements DAO<Post, string> {
 
   async delete(id: string): Promise<void> {
     if (!this.isValidObjectId(id))
-      throw `O id do post é inválido`;
+      throw new Error(`O id do post é inválido`);
 
     await PostSchema.findByIdAndRemove(id);
   };
