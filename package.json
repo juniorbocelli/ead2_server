@@ -14,7 +14,6 @@
     "yarn.lock": "^0.0.1-security"
   },
   "devDependencies": {
-    "@types/body-parser": "^1.19.2",
     "@types/cors": "^2.8.12",
     "@types/express": "^4.17.13",
     "ts-node-dev": "^1.1.8",
@@ -22,10 +21,8 @@
   },
   "scripts": {
     "dev": "ts-node-dev --debug --inspect --transpile-only --ignore-watch node_modules src/server.ts",
-    "start": "node src/server.ts",
+    "start": "ts-node src/server.ts",
     "build": "tsc"
   },
-  "compilerOptions": {
-    "esModuleInterop": true
-  }
+  "type": "commonjs"
 }
