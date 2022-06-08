@@ -22,5 +22,5 @@
     "start": "node src/server.ts",
     "build": "tsc"
   },
-  "engines": { "node": "12.x" }
+  "engines": { "node": "16.x" }
 }
