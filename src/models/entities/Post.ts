@@ -1,3 +1,7 @@
+import mongoose from 'mongoose';
+
+import SanitizerString from '../utils/SanitizerString';
+
 class Post {
   id: string | null;
 
@@ -8,8 +12,8 @@ class Post {
   createdAt: Date;
   updatedAt: Date | null;
 
-  constructor(id: Post['id'], title: Post['title'], description: Post['description'], creator: Post['creator'], createdAt: Post['createdAt'], updatedAt: Post['updatedAt']) {
-    this.id = id;
+  constructor(id: Post['id'] | mongoose.Types.ObjectId, title: Post['title'], description: Post['description'], creator: Post['creator'], createdAt: Post['createdAt'], updatedAt: Post['updatedAt']) {
+    this.id = SanitizerString.objectIdToStringOrNull(id);
 
     this.title = title;
     this.description = description;
