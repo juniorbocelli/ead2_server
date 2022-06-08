@@ -44,8 +44,8 @@ class PostControler {
 
       if (post === null)
         return res.status(200).json({ error: { message: 'Post inválido' } });
-        
-      res.status(200).json(post);
+
+      res.status(200).json('bosta');
     } catch (error: any) {
       res.status(200).json({ error: error.message });
     };
