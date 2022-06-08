@@ -41,6 +41,8 @@ class PostControler {
 
     try {
       const post = await daoPost.select(id);
+      if (post=== null)
+        throw new Error("Post inválido");
 
       res.status(200).json(post);
     } catch (error: any) {
