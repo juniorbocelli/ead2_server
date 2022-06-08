@@ -44,8 +44,8 @@ class PostControler {
 
       if (post === null)
         return res.status(200).json({ error: { message: 'Post inválido' } });
-
-      res.status(200).json('bosta');
+        
+      res.status(200).json(post);
     } catch (error: any) {
       res.status(200).json({ error: error.message });
     };
@@ -79,7 +79,7 @@ class PostControler {
     try {
       await daoPost.delete(id);
 
-      res.status(200).json({ success: { message: 'Post salvo com sucesso' } });
+      res.status(200).json({ success: { message: 'Post excluído com sucesso' } });
     } catch (error: any) {
       res.status(200).json({ error: error.message });
     };
