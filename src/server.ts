@@ -16,6 +16,6 @@ if (typeof (DB_CONNECTION) !== "undefined")
         console.log(`MongoDB Server is running @ : http://localhost:${DB_PORT}`)
       )
     )
-    .catch((error) => console.error(error));
+    .catch((error: any) => console.error(error as string));
 
 app.listen(process.env.SERVER_PORT, () => console.log(`Node.js Server running on port ${process.env.SERVER_PORT}`));
