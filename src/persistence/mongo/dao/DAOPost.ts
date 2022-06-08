@@ -83,8 +83,8 @@ class DAOPost implements DAO<Post, string> {
 
   async select(id: string): Promise<Post | null> {
     if (!this.isValidObjectId(id))
-      throw `O id do post é inválido`;
-      
+      throw new Error(`O id do post é inválido`);
+
     const post = await PostSchema.findById(id);
 
     if (post === null)
