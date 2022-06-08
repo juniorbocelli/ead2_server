@@ -4,24 +4,25 @@ import Post from '../../../models/entities/Post'
 const postSchema = new mongoose.Schema<Post>({
   title: {
     type: String,
-    required: [true, 'The title is required'],
+    required: [true, 'O título é obrigatório'],
   },
   description: {
     type: String,
-    required: [true, 'The description is required'],
+    required: [true, 'A descrição é obrigatóriaa'],
   },
   creator: {
     type: String,
-    required: [true, 'The creator user is required'],
+    required: [true, 'O criador é obrigatório'],
   },
   createdAt: {
     type: Date,
     default: new Date(),
-    required: [true, 'The date of creation is required'],
+    required: [true, 'A data de criação é obrigatória'],
   },
   updatedAt: {
     type: Date,
     required: false,
+    default: null,
   },
 });
 
