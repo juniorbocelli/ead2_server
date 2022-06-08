@@ -28,7 +28,7 @@ class PostControler {
     try {
       await daoPost.save(post);
 
-      res.status(200).json({...post, success: 'Post salvo com sucesso'});
+      res.status(200).json({ ...post, success: { message: 'Post salvo com sucesso' } });
     } catch (error: any) {
       res.status(200).json({ error: error.message });
     };
@@ -50,7 +50,7 @@ class PostControler {
 
   static async updatePost(req: Request, res: Response) {
     const { id } = req.params;
-  
+
 
     const daoPost = new DAOPost;
     const previousPost = await daoPost.select(id);
