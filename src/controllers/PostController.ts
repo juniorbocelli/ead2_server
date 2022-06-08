@@ -60,7 +60,7 @@ class PostControler {
     const post = Post.getUpdated(req.body, previousPost);
 
     try {
-      await daoPost.save(post);
+      await daoPost.update(post);
 
       res.status(200).json(post);
     } catch (error: any) {
