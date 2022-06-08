@@ -28,7 +28,7 @@ class PostControler {
     try {
       await daoPost.save(post);
 
-      res.status(200).json(post);
+      res.status(200).json({...post, success: 'Post salvo com sucesso'});
     } catch (error: any) {
       res.status(200).json({ error: error.message });
     };
